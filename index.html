@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form
+      action="/myform.php"
+      name="myForm"
+      onsubmit="return validateForm()"
+      method="post"
+    >
+      <div class="container">
+        <div class="subcontainer">
+          <div class="sub-cont-2">
+            <div class="values">
+              <label class="labels">Name:</label>
+              <input type="text" name="fname" id="name" class="txts" /><br />
+              <br />
+
+              <label class="labels">Password:</label>
+              <input
+                type="password"
+                name="fpass"
+                id="password"
+                class="txts"
+              /><br />
+              <br />
+
+              <label class="labels">Email:</label>
+              <input type="email" name="femail" id="email" class="txts" /><br />
+              <br />
+
+              <label class="labels">Contact:</label>
+              <input
+                type="number"
+                name="fnumber"
+                id="number"
+                class="txts"
+              /><br />
+              <br />
+
+              <br />
+
+              <div class="btns">
+                <input class="btn-2" type="submit" value="submit" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+  <script>
+    function validateForm() {
+      var name = document.forms["myForm"]["fname"].value;
+      var password = document.forms["myForm"]["fpass"].value;
+      var email = document.forms["myForm"]["femail"].value;
+      var number = document.forms["myForm"]["fnumber"].value;
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (name == "") {
+        alert("Name must be filled out");
+        return false;
+      }
+
+      if ( password.length<8 ) {
+        alert("password must be filled out properly");
+        return false;
+      }
+
+      if (!email.match(emailRegex)  || email== "") {
+        alert("email must be filled out properly");
+        return false;
+      }
+      if (number == "" || number.length<10 ) {
+        alert("number must be filled out properly");
+        return false;
+      }
+
+      else{
+        window.alert("form submiiteed")
+      }
+      
+    }
+  </script>
+</html>
